@@ -1,14 +1,23 @@
 <div class="row" style="clear:both;">
     <div class="col-md-3 text-center">
-        <%= image_tag @user.profile.avatar.url %>
+        <%= image_tag @user.profile.avatar.url, :class => "avatar_image" %>
     </div>
     <div class="col-md-6">
         <h1 style="clear:both"> <%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
         <h3><span class="job-title-icon"><%= job_title_icon %></span> <%= @user.profile.job_title %></h3>
-        <div class="well"><%= @user.profile.description %></div>    
-    <% if current_user.plan_id == 2 %>
+        <div class="well profile-block profile-description">
+            <h3>Description</h3>
+            <%= @user.profile.description %></div>    
+    <% if true #current_user.plan_id == 2 %>
+        <div class="well profile-block contact-info">
+            <h3>Contact Information</h3>
                 <%= @user.profile.phone_number %><br/>
                 <%= @user.profile.contact_email %><br/>
+        </div>        
             <% end %>
+     <% if current_user.profile %>
+        <%= link_to "Edit your profile",edit_user_profile_path(current_user), class: 'btn btn-default' %>
+    <% end %>   
     </div>
+             
 </div>
