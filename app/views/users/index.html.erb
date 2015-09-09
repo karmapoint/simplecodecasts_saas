@@ -8,15 +8,15 @@
                             <div class="col-sm-4 text-center">
                                 <% if user.profile.avatar %>
                                     <%= link_to user do %>
-                                     <%= image_tag user.profile.avatar.url(:thumbnail), :class => "avatar_image" %>
+                                     <%= image_tag user.profile.avatar.url, :class => "avatar_image" %>
                                     <% end %> 
                                  <% end %>
                              </div>
                             <div class="col-sm-4 text-center">
                                 <%= link_to user do %>
-                                <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+                                    <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
                                 <% end %>
-                                <p><%= user.profile.job_title %></p>
+                                    <p><%= user.profile.job_title %> <% if user.plan_id == 2 %><span class="label label-warning">Pro</span> <% end %></p>
                             </div>    
                          </div>
                     </li>
